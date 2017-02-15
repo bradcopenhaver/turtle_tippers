@@ -7,70 +7,50 @@ by Anne Belka; Annie Sonna; Brad Copenhaver and Bryant Wang.
 
 ##Description
 
-This webpage is a fun game with the goal to tip over all your opponent turtles. Here are the rules of the game:
-- Computer will generate a deck of 30 cards for each round of game.
-- From that deck, each player will have a randomly selected set of 5 cards in hand to start with.
-- Computer randomly select first player.
-- From the in-hand cards, player 1 can select up to two cards to display in_play then click "Play card"; They can also click without selection to skip their turn.
-- Each player has the option to play at each turn and the starting player is alternated by turns.
-- Turn is defined by each selecting cards and then having the opportunity to each attack once.
-- In order to tip your opponent's turtles, you will need to eliminate all the cards they have in play.
-- There are two types of cards: Animal cards used for the attack and fruits cards for redemption.
-- Each animal cards has numbers; the bottom left number defines the "attack power" while the one on the bottom right is the "number of life left."
-- Each attack power equates to one life lost for the opposing card. During battle, both the attacker and target attack each other.
-- Once you have eliminated all your opponent's cards, your next play will tip over as many turtles as the number of cards in-play for you;(maximum of 5).
-- Fruit card has the power to flip back turtles that have been tipped over (redemption).
-- Once a player has all his turtles flipped, it's the end of the game and his opponent wins.
-- Or if a player runs out of cards, the other player wins.
+Turtle Tippers is a card-based two-player battle game. The goal is to tip over all of your opponent's turtles while keeping your own turtles upright.
 
+Here are the rules of the game:
+- Each player starts with a randomly generated deck of 30 cards.
+- There are two types of cards: Animal cards used for the attack/defense and fruits cards for reviving turtles.
+- Each animal card has two numbers; the bottom left number defines the "attack power" while the one on the bottom right is the "life points."
+- Each player will have a randomly selected set of 5 cards in hand to start.
+- The computer randomly selects which player goes first.
+- From the in-hand cards, player 1 can select any number of cards (including zero) to put in play.
+- Cards played from the hand will be replaced according to the "draw limit" set at game start.
+- After player 1 places cards in play, player 2 also chooses cards from their hand to put in play.
+- When both players have their desired cards in play, the combat round begins.
+- Player 1 chooses one of their own in-play cards (attacker) and one of their opponent's in-play cards (target) to fight.
+- The attack power for each card selected is applied to the life points of the other card. (During battle, both the attacker and target cards attack each other.)
+- Player 1 continues selecting attackers and targets until each available attacker has fought once (Case 1) or there are no targets left (Case 2).
+- Case 1: Combat continues, but now player 2 chooses attackers and targets from their in-play cards.
+- Case 2: Any valid attacker that has not fought yet will tip over one of player 2's turtles.
+- After both players have a chance to choose attackers/targets and tip turtles, the round is over and a new round begins with players choosing cards from their hands again, but the player who goes first switches.
+- The game is over when either player has all of their turtles tipped over or one player runs out of cards in their draw deck.
 
-###Objective from Epicodus page
-
-- Spend time together as a team practicing effective communication and positive collaboration.
-- Have a working product ready to present at the end of the week trade show (12/22/16).
-- Determine the MVP for the project and focus on that scope first to a working prototype; then improve if time allows.
-- MVP:
-  * 2-player functional game.
-  * Random player decks - 30.
-  * Random hands - 5.
-  * Play area object.
-      - Card vs Card
-      - Card vs Turtle
-      - Card limit
-      - Winner and loser.
-      - Coin flip who goes first.
-
-
-##Specifications:
-
- - See the specDoc.txt file for all the specifications related to this website.
 
 ##Setup/Installation requirements
 
 1. Clone this repository to desktop.
-2. Use powershell under window machine to navigate to the cloned project folder.
-3. Run the following command "dnu restore"
+2. Navigate to the repository in the command line.
+3. Run the following command `dnu restore`
 4. You will need a database called `turtle-tippers` with the `cards`, `decks`, and `players` tables.
-5. Connect to your server and use the script turtle_tippers.sql to create the database.
-8. Run "dnx kestrel" command to start a local server.
+5. Connect to a local SQL server and use the script `turtle_tippers.sql` to create the game database.
+8. Run `dnx kestrel` to start a local web server.
 9. In your browser, navigate to http://localhost:5004/
-10. Then you are ready to start turtle tipping!
 
 ## Known Bugs
-TBD.
+
+None yet due to lack of testing.
 
 
 ## Technologies Used
 
-1. html
-2. github
-4. Nancy Web Application
-5. SQL Server Management
-6. C#
-7. Xunit
-8. Kestrel Server
-9. DNX
-10. Mono
+1. C#
+2. Git
+4. Nancy Web Framework
+5. SQL
+6. Html/CSS
+8. Razor view engine
 
 
 ## Link to the project on GitHub
